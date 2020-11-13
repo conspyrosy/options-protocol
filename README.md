@@ -42,7 +42,7 @@ To perform the actions above we expose 3 methods:
 - reclaimCollateral() - reclaim collateral post-expiry. this will return a combination of ETH and strikeCurrency depending on if (and how many) options have been exercised.
 
 There are also some getters which can be exposed to a UI which tell us information about option counts:
-- totalActiveOptions is the total amount of options minted minus any tokens minted that collateral has been reclaimed for. i.e. if the option is active this is the total amount of minted options.
+- totalActiveOptions is the total amount of options minted minus any tokens minted that collateral has been reclaimed for. if the option is still active, this is the total amount of minted options as no collateral can be claimed by minters until after expiry.
 - getUsersActiveOptions is the amount of options a user has minted. if they have reclaimed the collateral on their options (post-strike), this value becomes 0.
 
-There is no factory, but in reality there would be one which could construct options with different (strikeCurrency, strikePrice, expiryDate) combinations if they dont exist, and if that combination does exist, it would return the address for the existing token.
+There is no factory, but in reality there would be one which could construct options with different (strikeCurrency, strikePrice, expiryDate) combinations if they dont exist. if that combination does exist it would return the address for the existing token.

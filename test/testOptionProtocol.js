@@ -71,6 +71,7 @@ contract('Option', ([owner, minter, minter2, ...accounts]) => {
         assert(usdcBalance == '0', "Incorrect usdc balance after minting");
     })
 
+    //TODO: Fix this test. currently broken...
     it('should allow a user to exercise options if they own enough tokens', async () => {
         //mint 2 options
         await mintOptions('2', minter2);
@@ -106,6 +107,10 @@ contract('Option', ([owner, minter, minter2, ...accounts]) => {
     })
 
     it('should not allow a user to reclaim collateral once they have already done so', async () => {
+
+    })
+
+    it('should not allow a user to exercise options if they send incorrect amount of ETH', async () => {
 
     })
 })
