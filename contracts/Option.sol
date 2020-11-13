@@ -100,7 +100,7 @@ contract Option is ERC20 {
         require(block.timestamp > expiryDate, "Can't calculate claimable collateral effectively while options are active");
 
         uint256 totalActiveOptions = totalActiveOptions();
-        uint256 usersOptions = 0;
+        uint256 usersOptions = getUsersActiveOptions(msg.sender);
 
         uint256 reclaimableEthCollateral = 0;
         uint256 reclaimableStrikeCollateral = 0;
